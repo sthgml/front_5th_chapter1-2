@@ -26,11 +26,18 @@ router.set(
   }),
 );
 
-function main() {
-  router.get().subscribe(render);
-  globalStore.subscribe(render);
+const BASE_URL = import.meta.env.VITE_BASE_URL ?? "";
 
-  render();
+function main() {
+  document.querySelector("#root").innerHTML =
+    `<a href="${BASE_URL}login">로그인</a>`;
+  if (window.location.pathname === "/login") {
+    document.querySelector("#root").innerHTML = `<a href="${BASE_URL}">홈</a>`;
+  }
+
+  // router.get().subscribe(render);
+  // globalStore.subscribe(render);
+  // render();
 }
 
 main();
