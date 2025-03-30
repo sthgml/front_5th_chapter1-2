@@ -36,7 +36,11 @@ function main() {
   const params = new URLSearchParams(window.location.search);
   const redirectPath = params.get("p");
   if (redirectPath?.startsWith("/")) {
-    return window.history.pushState(null, null, BASE_URL + redirectPath);
+    return window.history.pushState(
+      null,
+      null,
+      BASE_URL + redirectPath.slice(1),
+    );
   }
 
   if (window.location.pathname.replace(BASE_URL, "/") === "/login") {
