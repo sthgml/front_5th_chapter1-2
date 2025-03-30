@@ -36,6 +36,7 @@ function main() {
   const params = new URLSearchParams(window.location.search);
   const redirectPath = params.get("p");
   if (redirectPath?.startsWith("/")) {
+    console.log(BASE_URL + redirectPath.slice(1));
     return window.history.pushState(
       null,
       null,
