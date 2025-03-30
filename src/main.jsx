@@ -32,11 +32,13 @@ function main() {
   console.log(BASE_URL);
   document.querySelector("#root").innerHTML =
     `<a href="${BASE_URL}login">로그인</a>`;
+
   const params = new URLSearchParams(window.location.search);
   const redirectPath = params.get("p");
   if (redirectPath?.startsWith("/")) {
-    return redirectPath;
+    return window.history.pushState(null, null, redirectPath);
   }
+
   if (window.location.pathname === "/login") {
     document.querySelector("#root").innerHTML = `<a href="${BASE_URL}">홈</a>`;
   }
