@@ -29,6 +29,7 @@ router.set(
 const BASE_URL = import.meta.env.VITE_BASE_URL ?? "";
 
 function main() {
+  console.log(BASE_URL);
   document.querySelector("#root").innerHTML =
     `<a href="${BASE_URL}login">로그인</a>`;
   if (window.location.pathname === "/login") {
