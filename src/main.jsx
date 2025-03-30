@@ -39,7 +39,7 @@ function main() {
     return window.history.pushState(null, null, BASE_URL + redirectPath);
   }
 
-  if (window.location.pathname === "/login") {
+  if (window.location.pathname.replace(BASE_URL, "/") === "/login") {
     document.querySelector("#root").innerHTML = `<a href="${BASE_URL}">홈</a>`;
   }
 
