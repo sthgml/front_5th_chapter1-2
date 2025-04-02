@@ -48,9 +48,9 @@ function main() {
     document.querySelector("#root").innerHTML = `<a href="${BASE_URL}">홈</a>`;
   }
 
-  // router.get().subscribe(render);
-  // globalStore.subscribe(render);
-  // render();
+  router.get().subscribe(render);
+  globalStore.subscribe(render);
+  render();
 }
 
 main();
