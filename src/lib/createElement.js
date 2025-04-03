@@ -1,8 +1,6 @@
-// import { addEvent } from "./eventManager";
+import { addEvent } from "./eventManager";
 
 export function createElement(vNode) {
-  console.log("createEl", vNode);
-
   // 1. vNode가 null, undefined, boolean 일 경우, 빈 텍스트 노드를 반환합니다.
   if (vNode == null || typeof vNode === "boolean") {
     return "";
@@ -18,7 +16,7 @@ export function createElement(vNode) {
   }
 
   // 3. vNode가 배열이면 DocumentFragment를 생성하고 각 자식에 대해 createElement를 재귀 호출하여 추가합니다.
-  if (typeof vNode === "object" && Array.isArray(vNode)) {
+  if (Array.isArray(vNode)) {
     const fragment = document.createDocumentFragment();
     vNode.forEach((child) => {
       const createdChildElement = createElement(child);
@@ -36,6 +34,9 @@ export function createElement(vNode) {
     Object.entries(vNode.props).forEach(([key, value]) => {
       if (key === "className") {
         key = "class";
+      }
+      if (key.startsWith("on")) {
+        addEvent(element, key.replace("on", ""), value);
       }
       element.setAttribute(key, value);
     });
