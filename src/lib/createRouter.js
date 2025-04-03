@@ -19,9 +19,7 @@ export const createRouter = (routes) => {
   const getTarget = () => routes[getPath()];
 
   const push = (path) => {
-    console.log("baseurl createRouter:", BASE_URL + path.slice(1));
-
-    // window.history.pushState(null, null, BASE_URL + path.slice(1));
+    window.history.pushState(null, null, BASE_URL + path.slice(1));
     notify();
   };
 

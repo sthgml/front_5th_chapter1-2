@@ -3,8 +3,15 @@
 const savedListenrs = {};
 
 export function setupEventListeners(root) {
-  Object.entries(savedListenrs).forEach(([key, listenerObj]) => {
-    root.addEventListenr(key, listenerObj.listenerObj);
+  Object.entries(savedListenrs).forEach(([key, [listenerObj]]) => {
+    if (listenerObj == null) {
+      root.addEventListener(key.toLowerCase(), listenerObj.handler);
+    }
+
+    listenerObj.element.addEventListener(
+      key.toLowerCase(),
+      listenerObj.handler,
+    );
   });
 }
 
