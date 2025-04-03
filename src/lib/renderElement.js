@@ -1,7 +1,7 @@
 import { setupEventListeners } from "./eventManager";
 import { createElement } from "./createElement";
 import { normalizeVNode } from "./normalizeVNode";
-import { updateElement } from "./updateElement";
+// import { updateElement } from "./updateElement";
 
 export function renderElement(vNode, container) {
   const normalizedVNode = normalizeVNode(vNode);
