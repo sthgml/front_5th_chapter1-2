@@ -26,28 +26,7 @@ router.set(
   }),
 );
 
-const BASE_URL = import.meta.env.VITE_BASE_URL ?? "";
-
 function main() {
-  console.log(BASE_URL);
-  document.querySelector("#root").innerHTML =
-    `<a href="${BASE_URL}login">로그인</a>`;
-
-  const params = new URLSearchParams(window.location.search);
-  const redirectPath = params.get("p");
-  if (redirectPath?.startsWith("/")) {
-    console.log(BASE_URL + redirectPath.slice(1));
-    return window.history.pushState(
-      null,
-      null,
-      BASE_URL + redirectPath.slice(1),
-    );
-  }
-
-  if (window.location.pathname.replace(BASE_URL, "/") === "/login") {
-    document.querySelector("#root").innerHTML = `<a href="${BASE_URL}">홈</a>`;
-  }
-
   router.get().subscribe(render);
   globalStore.subscribe(render);
   render();
