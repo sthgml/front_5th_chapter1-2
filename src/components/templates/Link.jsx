@@ -12,7 +12,7 @@ export function Link({ onClick, children, href, ...props }) {
   };
 
   return (
-    <a href={createPath(href)} onClick={handleClick} {...props}>
+    <a href={""} onClick={handleClick} {...props}>
       {children}
     </a>
   );
