@@ -1,5 +1,4 @@
 export function normalizeVNode(vNode) {
-  console.log(vNode);
   /**
    * 주어진 가상 노드(vNode)를 표준화된 형태로 변환
    * 이 함수는 다양한 타입의 입력을 처리하여 일관된 형식의 가상 노드를 반환
