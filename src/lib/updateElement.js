@@ -5,8 +5,6 @@
 // function updateAttributes(target, originNewProps, originOldProps) {}
 
 export function updateElement(parentElement, newNode, oldNode, index = 0) {
-  parentElement.innerHTML = "";
-  parentElement.appendChild(newNode);
   return {
     parentElement,
     newNode,
