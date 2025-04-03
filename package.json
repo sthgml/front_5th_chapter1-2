@@ -23,7 +23,8 @@
     "test:e2e:report": "npx playwright show-report",
     "test:generate": "playwright codegen localhost:5173",
     "prepare": "husky",
-    "deploy": "pnpm build && pnpm exec gh-pages -d dist -b gh-pages -f"
+    "deploy": "pnpm build && pnpm exec gh-pages -d dist -b gh-pages -f",
+    "dev:live": "VITE_BASE_URL=/front_5th_chapter1-2/ pnpm dev"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
